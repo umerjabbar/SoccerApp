@@ -1,50 +1,80 @@
 import React, { Component } from 'react';
-import { Text, View , SafeAreaView, Platform, Image, TouchableOpacity} from 'react-native';
-import {createMaterialTopTabNavigator, createStackNavigator} from 'react-navigation';
+import { Text, View, SafeAreaView, Platform, Image, TouchableOpacity } from 'react-native';
+import { createMaterialTopTabNavigator, createStackNavigator } from 'react-navigation';
 
 import StickyTabs from '../components/StickyTabs';
 import { ForecastScreen } from './ForecastScreen';
 import { H2HFormScreen } from './H2HFormScreen';
 import { NewsScreen } from './NewsScreen';
 import { PreMatchDetailsTopBar } from '../components/MatchDetailsTopBar';
-import { ThemeBackgroundColor } from '../constants/Constant';
+import { ThemeBackgroundColor, ThemeFontColor, RNHeight, DividerColor, deviceWidth, RNWidth } from '../constants/Constant';
 import { StatsScreen } from './StatsScreen';
+import { PreviewScreen } from './PreviewScreen';
+import { ODDSScreen } from './ODDSScreen';
 
 
 const TabNavigator = createMaterialTopTabNavigator(
     {
         Forecast: {
             screen: ForecastScreen,
-            navigationOptions: { title: 'Forecast' }
         },
-        H2HForm: {
+        'H2H Form': {
             screen: H2HFormScreen,
-            navigationOptions: { title: 'H2H Form' }
+        },
+        ODDS: {
+            screen: ODDSScreen
         },
         News: {
             screen: NewsScreen,
-            navigationOptions: { title: 'News' }
         },
         Stats: {
             screen: StatsScreen,
-            navigationOptions: { title: 'Stats' }
+        },
+        Preview: {
+            screen: PreviewScreen,
         }
     },
     {
         tabBarPosition: 'top',
         tabBarOptions: {
-            activeTintColor: 'black',
-            inactiveTintColor: 'gray',
-            pressColor: '#3BD06A',
-            labelStyle: {
-                fontWeight: 'bold',
-            },
-            indicatorStyle: {
-                backgroundColor: '#3BD06A'
+            // showIcon: true,
+            scrollEnabled: true,
+            upperCaseLabel: false,
+            activeTintColor: ThemeFontColor.active,
+            inactiveTintColor: ThemeFontColor.inactive,
+            tabStyle: {
+                width: deviceWidth / 4, 
+                padding: 3,
+                height: 30 * RNHeight,
+                borderRightColor: DividerColor,
+                borderRightWidth: 1,
+                marginVertical: 5
             },
             style: {
-                backgroundColor: 'white',
+                backgroundColor: ThemeBackgroundColor.variant_white
             },
+            labelStyle: {
+                fontSize: 13,
+                fontWeight: '600',
+                padding: 0,
+                textAlign: 'left'
+            },
+            indicatorStyle: {
+                width: deviceWidth / 4, 
+                backgroundColor: ThemeBackgroundColor.variant_green
+            },
+            // activeTintColor: 'black',
+            // inactiveTintColor: 'gray',
+            // pressColor: '#3BD06A',
+            // labelStyle: {
+            //     fontWeight: 'bold',
+            // },
+            // indicatorStyle: {
+            //     backgroundColor: '#3BD06A'
+            // },
+            // style: {
+            //     backgroundColor: 'white',
+            // },
         },
     }
 );
@@ -90,8 +120,8 @@ const materialTabNavigation = createStackNavigator(
                     },
                 }),
             },
-            headerTitle: <Text style={{textAlignVertical: 'bottom', fontSize: 30, fontWeight: 'bold', color: ThemeBackgroundColor.variant_green}}>Soccerfy</Text>,
-            headerLeft: <TouchableOpacity><Image style={{height: 30, aspectRatio: 1, backgroundColor: 'gray', marginHorizontal: 14}}/></TouchableOpacity>
+            headerTitle: <Text style={{ textAlignVertical: 'bottom', fontSize: 30, fontWeight: 'bold', color: ThemeBackgroundColor.variant_green }}>Soccerfy</Text>,
+            headerLeft: <TouchableOpacity><Image style={{ height: 30, aspectRatio: 1, backgroundColor: 'gray', marginHorizontal: 14 }} /></TouchableOpacity>
         }
     }
 );
