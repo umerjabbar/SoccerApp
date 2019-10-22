@@ -21,35 +21,96 @@ export class StatsScreen extends React.Component {
     constructor() {
         super();
         this.state = {
-            attendees: ([]),
-            hosts: ([]),
             selectedButton: 'ALL'
         };
-        this.makeSections();
-    }
-
-    makeSections() {
-        for (let index = 0; index < 8; index++) {
-            const randomKey = randomUI16();
-            this.state.attendees.push({
-                id: `${randomKey}`,
-                name: 'Corner kicks',
-                score1: '11',
-                score2: '2',
-            })
-        }
-        for (let index = 0; index < 8; index++) {
-            const randomKey = randomUI16();
-            this.state.hosts.push({
-                id: `${randomKey}`,
-                name: 'Total shots',
-                score1: '15',
-                score2: '12',
-            })
-        }
         this.sections = [
-            { data: this.state.hosts, title: 'Last Matches: Man City' },
-            { data: this.state.attendees, title: 'Last Matches: Brighton' },
+            {
+                title: '',
+                data: [
+                    {
+                        name: 'Ball possessions',
+                        score1: 57,
+                        score2: 43,
+                        unit: '%'
+                    }
+                ],
+            },
+            {
+                title: '',
+                data: [
+                    {
+                        name: 'Total shots',
+                        score1: 15,
+                        score2: 12,
+                        unit: ''
+                    },
+                    {
+                        name: 'Shots on target',
+                        score1: 7,
+                        score2: 5,
+                        unit: ''
+                    },
+                    {
+                        name: 'Shots off target',
+                        score1: 5,
+                        score2: 5,
+                        unit: ''
+                    },
+                    {
+                        name: 'Blocked shots',
+                        score1: 3,
+                        score2: 2,
+                        unit: ''
+                    },
+                    {
+                        name: 'Total shots',
+                        score1: 15,
+                        score2: 12,
+                        unit: ''
+                    },
+                    {
+                        name: 'Total shots',
+                        score1: 15,
+                        score2: 12,
+                        unit: ''
+                    },
+                ],
+            },
+            {
+                title: '',
+                data: [
+                    {
+                        name: 'Corner kicks',
+                        score1: 11,
+                        score2: 2,
+                        unit: ''
+                    },
+                    {
+                        name: 'Offsides',
+                        score1: 0,
+                        score2: 5,
+                        unit: ''
+                    },
+                    {
+                        name: 'Fouls',
+                        score1: 9,
+                        score2: 9,
+                        unit: ''
+                    },
+                    {
+                        name: 'Yellow cards',
+                        score1: 0,
+                        score2: 2,
+                        unit: ''
+                    },
+                    {
+                        name: 'Blocked shots',
+                        score1: 3,
+                        score2: 2,
+                        unit: ''
+                    },
+                ],
+            }
         ]
     }
 
@@ -57,9 +118,21 @@ export class StatsScreen extends React.Component {
         return (
             <TouchableOpacity onPress={this._onPress} activeOpacity={0.8} style={styles.sectionContentContainer}>
 
-                <Text style={styles.titleLabel}>{item.score1}</Text>
+                {(item.score1 >= item.score2) &&
+                    <Text style={styles.greenScoreLabel}>{item.score1 + item.unit}</Text>
+                }
+
+                {(item.score1 < item.score2) &&
+                    <Text style={styles.scoreLabel}>{item.score1 + item.unit}</Text>
+                }
                 <Text style={styles.titleLabel}>{item.name}</Text>
-                <Text style={styles.titleLabel}>{item.score2}</Text>
+
+                {(item.score2 >= item.score1) &&
+                    <Text style={styles.greenScoreLabel}>{item.score2 + item.unit}</Text>
+                }
+                {(item.score2 < item.score1) &&
+                    <Text style={styles.scoreLabel}>{item.score2 + item.unit}</Text>
+                }
 
             </TouchableOpacity>
         );
@@ -67,29 +140,11 @@ export class StatsScreen extends React.Component {
 
     _renderSectionHeader = ({ section }) => {
         return (
-            <View style={{height: 12}}>
-                
+            <View style={{ height: 12 }}>
+
             </View>
         );
     };
-
-    render() {
-        return (
-            <StickyScroll {...this.props} style={[styles.container]}>
-
-                <SectionList
-                    renderItem={this._renderItem}
-                    renderSectionHeader={this._renderSectionHeader}
-                    stickySectionHeadersEnabled={true}
-                    keyExtractor={(item, index) => item.id}
-                    sections={this.sections}
-                    ItemSeparatorComponent={this.renderSeparator}
-                    ListHeaderComponent={this.renderHeader}
-                    ListFooterComponent={<View style={{ height: 40 }}></View>}
-                />
-            </StickyScroll>
-        );
-    }
 
     renderSeparator = () => {
         return (
@@ -98,6 +153,7 @@ export class StatsScreen extends React.Component {
                     height: 1,
                     width: "90%",
                     backgroundColor: "#CED0CE",
+                    opacity: 0.5,
                     marginLeft: "6%"
                 }}
             />
@@ -132,6 +188,25 @@ export class StatsScreen extends React.Component {
                 {this.renderVerticalSeparator()}
                 {this.renderSelectionButton('2ND')}
             </View>
+        );
+    }
+
+
+    render() {
+        return (
+            <StickyScroll {...this.props} style={[styles.container]}>
+
+                <SectionList
+                    renderItem={this._renderItem}
+                    renderSectionHeader={this._renderSectionHeader}
+                    stickySectionHeadersEnabled={true}
+                    keyExtractor={(item, index) => `${index}`}
+                    sections={this.sections}
+                    ItemSeparatorComponent={this.renderSeparator}
+                    ListHeaderComponent={this.renderHeader}
+                    ListFooterComponent={<View style={{ height: 40 }}></View>}
+                />
+            </StickyScroll>
         );
     }
 
@@ -172,6 +247,10 @@ const styles = StyleSheet.create({
     },
     stylishText: { fontSize: 17, fontWeight: '600', },
     sectionFooter: { flexDirection: 'row', backgroundColor: 'transparent', borderTopColor: '#CED0CE', borderTopWidth: 1 },
-    titleLabel: { fontSize: 15, fontWeight: '500', marginBottom: 0 },
+    titleLabel: { fontSize: 15, fontWeight: '400', marginBottom: 0 },
+
+    scoreLabel: { fontSize: 15, fontWeight: '500' },
+    greenScoreLabel: { fontSize: 15, fontWeight: '500', color: ThemeBackgroundColor.variant_green },
+
     selectionButton: { fontSize: 16, fontWeight: '600', margin: 8 },
 });

@@ -34,7 +34,7 @@ export default class DetailsScreen extends React.Component {
   renderMatchInfo = () => {
     return (
       <View style={{ flexDirection: 'row', justifyContent: 'center', alignContent: 'center' }}>
-        <Image style={{ aspectRatio: 1, height: 50, backgroundColor: 'gray' }} source={{ uri: '' }} />
+        <Image style={{ aspectRatio: 1, height: 50 }} source={{ uri: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png' }} />
         <View style={{ marginHorizontal: 14, justifyContent: 'center' }}>
           <Text style={[styles.titleLabel, { color: '#000000', textAlign: 'auto' }]}>MANCHESTER CITY</Text>
           <Text style={styles.bodyLabel}>Contract until 30 Jun 2023</Text>
@@ -78,7 +78,7 @@ export default class DetailsScreen extends React.Component {
 
           <View style={styles.rectStyle}>
 
-            {this.renderPropertyWithImage('BEL', 'Nationality', '')}
+            {this.renderPropertyWithImage('BEL', 'Nationality', 'https://cdn.countryflags.com/thumbs/germany/flag-round-250.png')}
 
             {this.renderProperty('Right', 'Preferred foot')}
 
@@ -166,7 +166,6 @@ const styles = StyleSheet.create({
     width: 16,
     aspectRatio: 1,
     marginRight: 4,
-    backgroundColor: 'gray'
   },
   propertiesView: {
     marginHorizontal: 14,

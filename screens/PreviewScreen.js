@@ -44,5 +44,5 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#F1F4FB',
     },
-    titleLabel: { fontSize: 15, fontWeight: '500', marginHorizontal: 30 },
+    titleLabel: { fontSize: 15, fontWeight: '500', margin: 24 },
 });

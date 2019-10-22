@@ -8,6 +8,7 @@ import StatisticsScreen from '../screens/StatisticsScreen';
 import MatchesScreen from '../screens/MatchesScreen';
 import TabScreens from '../screens/TabScreens';
 import MatchesTabScreens from '../screens/MatchDetailsTabNavigation';
+import LiveMatchesTabScreens from '../screens/LiveMatchDetailsTabNavigation';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -154,4 +155,4 @@ const MainNavigator = createStackNavigator({
   // }
 })
 
-export default MatchesTabScreens;
+export default TabScreens;

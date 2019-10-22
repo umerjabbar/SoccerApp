@@ -92,9 +92,7 @@ export default class MatchesScreen extends React.Component {
       <View>
 
         <View style={{ flexDirection: 'row', alignItems: 'center', marginHorizontal: 20 }}>
-          <Image style={{ aspectRatio: 1, height: 35, backgroundColor: 'gray' }}
-          // source={{ uri: '' }} 
-          />
+          <Image style={{ aspectRatio: 1, height: 35,}} source={{uri: 'http://icons.iconarchive.com/icons/custom-icon-design/round-world-flags/512/England-icon.png'}}/>
           <View style={{ marginHorizontal: 14, justifyContent: 'center' }}>
             <Text style={[styles.titleLabel]}>Premier League</Text>
             <Text style={styles.bodyLabel}>Soccerfy ratings</Text>
@@ -112,12 +110,12 @@ export default class MatchesScreen extends React.Component {
             <View>
               <View style={{ flexDirection: 'row', marginBottom: 4, alignItems: 'center' }}>
                 <View style={{ backgroundColor: 'gray', height: 2, width: 10 }}></View>
-                <Image style={{ aspectRatio: 1, height: 24, backgroundColor: 'gray', marginRight: 10, marginLeft: 2 }} />
+                <Image style={{ aspectRatio: 1, height: 24, marginRight: 10, marginLeft: 2 }} source={{uri: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png'}} />
                 <Text style={styles.titleLabel}>Man City</Text>
               </View>
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <View style={{ backgroundColor: 'gray', height: 2, width: 10 }}></View>
-                <Image style={{ aspectRatio: 1, height: 24, backgroundColor: 'gray', marginRight: 10, marginLeft: 2 }} />
+                <Image style={{ aspectRatio: 1, height: 24, marginRight: 10, marginLeft: 2 }} source={{uri: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Brighton_%26_Hove_Albion_logo.svg/1200px-Brighton_%26_Hove_Albion_logo.svg.png'}} />
                 <Text style={styles.titleLabel}>Brighton</Text>
               </View>
             </View>

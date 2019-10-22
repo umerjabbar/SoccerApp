@@ -6,11 +6,12 @@ import StickyTabs from '../components/StickyTabs';
 import { ForecastScreen } from './ForecastScreen';
 import { H2HFormScreen } from './H2HFormScreen';
 import { NewsScreen } from './NewsScreen';
-import { PreMatchDetailsTopBar } from '../components/MatchDetailsTopBar';
+import { PreMatchDetailsTopBar } from '../components/PreMatchDetailsTopBar';
 import { ThemeBackgroundColor, ThemeFontColor, RNHeight, DividerColor, deviceWidth, RNWidth } from '../constants/Constant';
 import { StatsScreen } from './StatsScreen';
 import { PreviewScreen } from './PreviewScreen';
 import { ODDSScreen } from './ODDSScreen';
+import { LineupScreen } from './LineupScreen';
 
 
 const TabNavigator = createMaterialTopTabNavigator(
@@ -24,15 +25,15 @@ const TabNavigator = createMaterialTopTabNavigator(
         ODDS: {
             screen: ODDSScreen
         },
-        News: {
-            screen: NewsScreen,
-        },
-        Stats: {
-            screen: StatsScreen,
+        Lineups: {
+            screen: LineupScreen,
         },
         Preview: {
             screen: PreviewScreen,
-        }
+        },
+        News: {
+            screen: NewsScreen,
+        },
     },
     {
         tabBarPosition: 'top',

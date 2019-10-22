@@ -57,7 +57,7 @@ export default class StatisticsScreen extends React.Component {
       <TouchableOpacity style={{ alignItems: 'center', marginHorizontal: 8 }} onPress={() => this.itemPressed(item)} activeOpacity={0.8}>
         <View style={{ height: 60, width: 50, flexDirection: 'column-reverse', alignItems: 'center' }}>
           <Image style={{ height: 34, aspectRatio: 1, backgroundColor: 'gray' }} />
-          <Text style={{ margin: 4 }}>23 Sep</Text>
+          <Text style={{ marginVertical: 4 }}>23 Sep</Text>
         </View>
         <View style={{ height: 100, width: 50, marginTop: 40, marginBottom: 8 }}>
           <View style={{ flexDirection: 'column-reverse', height: `${100 - (item.score * 10)}%`, alignItems: 'center' }}>
@@ -90,11 +90,11 @@ export default class StatisticsScreen extends React.Component {
         <View style={[styles.container]}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 24 }}>
             <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-              <Image style={{ height: 36, aspectRatio: 1, backgroundColor: 'gray', marginRight: 8 }} />
+              <Image style={{ height: 36, aspectRatio: 1, borderRadius: 18, backgroundColor: 'white', marginRight: 8, padding: 8 }} source={{uri: 'https://i.pinimg.com/originals/13/96/2a/13962a0dcecb036ad514ce76e4fa4f8f.png'}} resizeMode= {'cover'} />
               <View style={{ justifyContent: 'center' }}>
                 <TouchableOpacity style={{ flexDirection: 'row', alignContent: 'center', justifyContent: 'center' }}>
                   <Text style={styles.titleLabel}>Premier League</Text>
-                  <Image style={{ height: 10, aspectRatio: 1, backgroundColor: 'gray', marginLeft: 4 }} />
+                  <Image style={{ height: 15, aspectRatio: 1, marginLeft: 4 }} source={{uri: 'https://img.icons8.com/ios-glyphs/90/000000/expand-arrow.png'}} />
                 </TouchableOpacity>
                 <Text style={styles.bodyLabel}>Manchester City</Text>
               </View>
@@ -103,7 +103,7 @@ export default class StatisticsScreen extends React.Component {
             <View style={{ flexDirection: 'row' }}>
               <TouchableOpacity style={{ flexDirection: 'row', alignContent: 'center', justifyContent: 'center' }}>
                 <Text style={styles.titleLabel}>19/20</Text>
-                <Image style={{ height: 10, aspectRatio: 1, backgroundColor: 'gray', marginHorizontal: 4 }} />
+                <Image style={{ height: 15, aspectRatio: 1, marginHorizontal: 4 }} source={{uri: 'https://img.icons8.com/ios-glyphs/90/000000/expand-arrow.png'}} />
               </TouchableOpacity>
             </View>
           </View>
@@ -129,7 +129,7 @@ export default class StatisticsScreen extends React.Component {
 
           <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 14 }}>
             <Text style={styles.titleLabel}>Season Heatmaps</Text>
-            <Image style={{ height: 10, aspectRatio: 1, backgroundColor: 'gray', marginHorizontal: 4 }} />
+            <Image style={{ height: 15, aspectRatio: 1, marginHorizontal: 4 }} source={{uri: 'https://img.icons8.com/ios-glyphs/90/000000/expand-arrow.png'}}/>
           </TouchableOpacity>
 
           <View style={styles.lineStyle}></View>
